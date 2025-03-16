@@ -1,0 +1,36 @@
+{
+     "Products": [
+        {
+            "id": 1,
+            "img": "https://i.imgur.com/jzgl3sH.png",
+            "title": "The north coat",
+            "newPrice": 260,
+            "oldPrice": 360,
+            "numberStar": 65
+        },
+        {
+            "id": 2,
+            "img": "https://i.imgur.com/6j03r91.png",
+            "title": "Gucci duffle bag",
+            "newPrice": 960,
+            "oldPrice": 1160,
+            "numberStar": 65
+        },
+        {
+            "id": 3,
+            "img": "https://i.imgur.com/tCkWpN2.png",
+            "title": "RGB liquid CPU Cooler",
+            "newPrice": 160,
+            "oldPrice": 170,
+            "numberStar": 65
+        },
+        {
+            "id": 4,
+            "img": "https://i.imgur.com/IoDhEbC.png",
+            "title": "Small BookSelf",
+            "newPrice": 360,
+            "oldPrice": 380,
+            "numberStar": 65
+        }
+    ]
+}
