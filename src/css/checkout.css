@@ -140,6 +140,8 @@
 }
 .Checkout-Departament .container .Checkout-Content .content-checkout .content-product div img{
     margin-right: 20px;
+    width: 54px;
+    height: 54px;
 }
 .Checkout-Departament .container .Checkout-Content .content-checkout .content-product div h3{
     font-size: 17px;
@@ -151,6 +153,9 @@
     font-size: 17px;
     color: var(--Button);
     letter-spacing: 0.5px;
+}
+.Checkout-Departament .container .Checkout-Content .content-checkout .all-Col-Total{
+    margin-top: 20px;
 }
 .Checkout-Departament .container .Checkout-Content .content-checkout .all-Col-Total .col-Subtotal,
 .Checkout-Departament .container .Checkout-Content .content-checkout .all-Col-Total .col-Shipping,

@@ -12,8 +12,16 @@ import "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import Footer from "./Footer";
+import { addTocart } from "../store/cartReducer";
+import { useNavigate } from "react-router-dom";
 
 function WishList(){
+    const navigate = useNavigate("");
+
+    const handleNavigate = () => {
+        navigate("/Cart")
+    }
+
     const  settings = {
         infinite: true,
         slidesToShow: 4,
@@ -57,10 +65,13 @@ function WishList(){
 
     useEffect(() => {
         dispatch(getAllWishList())
-    },[]);
+    },[dispatch]);
 
     const state2 = useSelector(state => state.items.WishList2);
-    console.log(state2)
+    console.log(state2);
+
+    //const cartState = useSelector(state => state.cart.length);
+    //console.log(cartState)
 
     return(
         <div className="wishList-Departament">
@@ -84,7 +95,11 @@ function WishList(){
                                             <img src={imgDelete} alt="img-delete"/>
                                         </div>
                                     </div>
-                                    <div className="col-addTocart" style={{backgroundColor: "black"}}>
+                                    <div className="col-addTocart" style={{backgroundColor: "black"}}
+                                    onClick={() => {
+                                        dispatch(addTocart(product));
+                                        handleNavigate()
+                                    }}>
                                         <img src={imgCart} alt="img-Cart"/>
                                         <p>Add To Cart</p>
                                     </div>
@@ -125,7 +140,11 @@ function WishList(){
                                             <img src={imgEye} alt="img-Eye"/>
                                         </div>
                                     </div>
-                                    <div className="col-add-To-Cart">
+                                    <div className="col-add-To-Cart"
+                                    onClick={() => {
+                                        dispatch(addTocart(product));
+                                        handleNavigate()
+                                    }}>
                                         <img src={imgCart} alt="img-cart"/>
                                         <p>Add To Cart</p>
                                     </div>

@@ -5,14 +5,22 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
-import imgProduct from "../images/g92-2-500x500 1 (1).png";
 import imgBay1 from "../images/Bkash.svg";
 import imgBay2 from "../images/Visa.svg";
 import imgBay3 from "../images/Mastercard.svg";
 import imgBay4 from "../images/Nagad.svg";
 import Footer from "./Footer";
-
+import { useSelector } from "react-redux";
 function Checkout(){
+    const state = useSelector(state => state.cart);
+    console.log( state);
+
+    const totalPrice = state.reduce((total,product) => {
+        return total + product.newprice * product.quantity;
+    },0)
+
+    //console.log( totalPrice);
+
     const [clickIcon,setClickIcon] = useState(false);
     const [firstName,setFirstName] = useState("");
     const [companyName,setCompanyName] = useState("");
@@ -122,24 +130,21 @@ function Checkout(){
                         </div>
                     </div>
                     <div className="content-checkout">
-                        <div className="content-product">
-                            <div>
-                                <img src={imgProduct} alt="img-product"/>
-                                <h3>LCD Monitor</h3>
-                            </div>
-                            <p>$650</p>
-                        </div>
-                        <div className="content-product">
-                            <div>
-                                <img src={imgProduct} alt="img-product"/>
-                                <h3>LCD Monitor</h3>
-                            </div>
-                            <p>$650</p>
-                        </div>
+                        {state.map((product,index) => {
+                            return(
+                                <div className="content-product" key={product.id}>
+                                    <div>
+                                        <img src={product.img} alt="img-product"/>
+                                        <h3>{product.title.slice(0,13)}</h3>
+                                    </div>
+                                     <p>{`$${product.newprice}`}</p>
+                                </div>
+                            )
+                        })}
                         <div className="all-Col-Total">
                             <div className="col-Subtotal">
                                 <h3>Subtotal:</h3>
-                                <p>$1750</p>
+                                <p>{`$${totalPrice}`}</p>
                             </div>
                             <div className="col-Shipping">
                                 <h3>Shipping:</h3>
@@ -147,7 +152,7 @@ function Checkout(){
                             </div>
                             <div className="col-Total">
                                 <h3>Total:</h3>
-                                <p>$1750</p>
+                                <p>{`$${totalPrice}`}</p>
                             </div>
                         </div>
                         <div className="Payment-Col">

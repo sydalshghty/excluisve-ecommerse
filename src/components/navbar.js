@@ -14,6 +14,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector} from "react-redux";
 
 function Navbar() {
+    const cartLength = useSelector(state => state.cart.length);
 
     const state = useSelector(state => state.heart);
 
@@ -69,7 +70,7 @@ function Navbar() {
                     </div>
                     <div>
                         <FontAwesomeIcon className="icon-Shop" onClick={handleNavigateCart} icon={faCartShopping} />
-                        <p>2</p>
+                        <p>{cartLength}</p>
                     </div>
                     <div>
                         {bars ? 
